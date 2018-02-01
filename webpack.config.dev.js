@@ -10,18 +10,13 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin()
   ],
   module: {
-    rules: [
-      { test: /\.css$/,  use: ['style-loader', 'css-loader'] },
-      // images and fonts
-      { test: /\.(gif|ttf|eot|svg|woff2?)$/, use: 'url-loader?name=[name].[ext]'},
-      {
-        test: /\.js$/,
-        exclude: /(node_modules)/,
-        use: [
-          { loader: 'babel-loader' },
-        ],
-      }
-    ]
+    loaders: [{
+      test: /\.js$/,
+      exclude: /(node_modules)/,
+      use: [
+        { loader: 'babel-loader' }
+      ]
+    }]
   },
   output: {
     filename: 'bundle.js',
